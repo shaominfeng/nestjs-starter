@@ -1,4 +1,4 @@
-<h1 align="center">React && Ant Design Start</h1>
+<h1 align="center">Nest && Typescript Start</h1>
 
 <div align="center">
 This is a scaffolding project,it can quickly help you start your project.
@@ -17,10 +17,6 @@ $ git clone 'https://github.com/shaominfeng/bff-starter'
 $ npm install
 $ npm start         # visit http://localhost:3000/
 ```
-1. You need install nvm 1.1.9(< 1.1.9 will meet some bug) from here, and then install node v16.14.2 by nvm (nvm install 16.14.2 & nvm use 16.14.2).
-2. And then, you need clone the repo. Run `git@github.com:shaominfeng/react-ant-design-start.git` in work folder.
-3. cd to bff-starter folder. Run `npm install` in this path.
-4. `npm run start`
 
 ## Feature
 - :bulb: **Mock**: Mock api for frontend local test
