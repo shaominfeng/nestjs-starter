@@ -2,9 +2,9 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { UsersService } from './users/users.service';
-import { CategoriesModule } from './categories/categories.module';
-import { UsersModule } from './users/users.module';
+import { UsersService } from './modules/users/users.service';
+import { CategoriesModule } from './modules/categories/categories.module';
+import { UsersModule } from './modules/users/users.module';
 import customConfig from './config';
 @Module({
   imports: [
