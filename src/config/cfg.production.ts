@@ -1,6 +1,5 @@
 export default {
   ui: {
-    title: "hello",
+    title: 'hello',
   },
 };
-
