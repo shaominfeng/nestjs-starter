@@ -1,8 +1,5 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { ConfigModule, ConfigService } from '@nestjs/config';
-import { UsersService } from './modules/users/users.service';
+import {ConfigModule, ConfigService} from '@nestjs/config';
 import { CategoriesModule } from './modules/categories/categories.module';
 import { UsersModule } from './modules/users/users.module';
 import { HealthModule } from './modules/health/health.module';
@@ -16,13 +13,28 @@ import { CatsModule } from './modules/cats/cats.module';
       isGlobal: true,
       load: [customConfig],
     }),
-    MongooseModule.forRoot('mongodb://localhost/27017'),
+    MongooseModule.forRootAsync({
+      imports: [ConfigModule],
+      inject: [ConfigService],
+      useFactory: (configService: ConfigService) => ({
+        uri: configService.get('mongodb.cats.uri'),
+        connectionName: configService.get('mongodb.cats.name'),
+      }),
+    }),
+    MongooseModule.forRootAsync({
+      imports: [ConfigModule],
+      inject: [ConfigService],
+      useFactory: (configService: ConfigService) => ({
+        uri: configService.get('mongodb.users.uri'),
+        connectionName: configService.get('mongodb.users.name'),
+      }),
+    }),
     CategoriesModule,
     UsersModule,
     HealthModule,
     CatsModule,
   ],
-  controllers: [AppController],
-  providers: [AppService, UsersService],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}

@@ -7,6 +7,7 @@ This is a scaffolding project,it can quickly help you start your project.
 ## Required
 1. Node > 16.14.2
 2. Git
+3. Mongodb: [Mongodb](https://www.mongodb.com/try/download/community)
 
 ## Quick Start
 
@@ -23,7 +24,6 @@ $ npm start         # visit http://localhost:3000/
 - :scroll: **Request**: API centralized management, easy to update and call
 - :gem: **Format**: Automate format codes and check message conventions when pre-commit
 - :triangular_ruler: **Multi Config**: Different config for different env
-
 ## Description
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
