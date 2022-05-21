@@ -1,8 +1,12 @@
-import { Injectable, Scope, ConsoleLogger } from '@nestjs/common';
+import { Logger, PinoLogger, Params, PARAMS_PROVIDER_TOKEN } from 'nestjs-pino';
+import {Inject, Injectable} from "@nestjs/common";
 
-@Injectable({ scope: Scope.TRANSIENT })
-export class MyLogger extends ConsoleLogger {
-  customLog() {
-    this.log('Please feed the cat!');
+@Injectable()
+export class MyLoggerService extends Logger {
+  constructor(
+      logger: PinoLogger,
+      @Inject(PARAMS_PROVIDER_TOKEN) params: Params
+  ) {
+    super(logger,params);
   }
 }

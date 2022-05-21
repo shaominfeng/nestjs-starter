@@ -6,6 +6,7 @@ import { HealthModule } from './modules/health/health.module';
 import customConfig from './config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { CatsModule } from './modules/cats/cats.module';
+import {MyLoggerModule} from "./common/my-logger/my-logger.module";
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -35,6 +36,7 @@ import { CatsModule } from './modules/cats/cats.module';
     UsersModule,
     HealthModule,
     CatsModule,
+    MyLoggerModule
   ],
   controllers: [],
   providers: [],

@@ -22,8 +22,9 @@ $ npm start         # visit http://localhost:3000/
 ## Feature
 - :bulb: **Mock**: Mock api for frontend local test
 - :scroll: **Request**: API centralized management, easy to update and call
-- :gem: **Format**: Automate format codes and check message conventions when pre-commit
+- :gem: **Format**: Automate format codes and define message conventions when pre-commit
 - :triangular_ruler: **Multi Config**: Different config for different env
+- 🐤: **trace**: to log every request/response automatically,to bind request data to the logs automatically from any service on any application layer without passing request context
 ## Description
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
