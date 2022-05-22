@@ -24,7 +24,7 @@ $ npm start         # visit http://localhost:3000/
 - :scroll: **Request**: API centralized management, easy to update and call
 - :gem: **Format**: Automate format codes and define message conventions when pre-commit
 - :triangular_ruler: **Multi Config**: Different config for different env
-- 🐤: **trace**: to log every request/response automatically,to bind request data to the logs automatically from any service on any application layer without passing request context
+- 🐤: **Trace**: to log every request/response automatically,to bind request data to the logs automatically from any service on any application layer without passing request context(thanks you nestjs-pino,pino-http) 
 ## Description
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.

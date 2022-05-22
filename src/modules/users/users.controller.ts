@@ -18,6 +18,7 @@ export class UsersController {
   @Get()
   findAll() {
     this.logger.log(`request findAll`);
+    this.logger.log(`request=${JSON.stringify(CreateUserDto)}`);
     return this.usersService.findAll();
   }
 

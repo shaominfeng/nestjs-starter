@@ -2,6 +2,9 @@ export default {
   ui: {
     title: 'hello',
   },
+  log:{
+    level:'debug',
+  },
   mongodb: {
     cats: {
       uri: 'mongodb://localhost/cats',
