@@ -7,8 +7,13 @@ import customConfig from './config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { CatsModule } from './modules/cats/cats.module';
 import {MyLoggerModule} from "./common/my-logger/my-logger.module";
+import {ThrottlerModule} from "@nestjs/throttler";
 @Module({
   imports: [
+    ThrottlerModule.forRoot({
+      ttl: 60,
+      limit: 10,
+    }),
     ConfigModule.forRoot({
       ignoreEnvFile: true,
       isGlobal: true,
