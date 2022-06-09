@@ -19,28 +19,28 @@ import {ThrottlerModule} from "@nestjs/throttler";
       isGlobal: true,
       load: [customConfig],
     }),
-    MongooseModule.forRootAsync({
-      imports: [ConfigModule],
-      inject: [ConfigService],
-      useFactory: (configService: ConfigService) => ({
-        uri: configService.get('mongodb.cats.uri'),
-        connectionName: configService.get('mongodb.cats.name'),
-      }),
-      connectionName: 'cats',
-    }),
-    MongooseModule.forRootAsync({
-      imports: [ConfigModule],
-      inject: [ConfigService],
-      useFactory: (configService: ConfigService) => ({
-        uri: configService.get('mongodb.users.uri'),
-        connectionName: configService.get('mongodb.users.name'),
-      }),
-      connectionName: 'users',
-    }),
+    // MongooseModule.forRootAsync({
+    //   imports: [ConfigModule],
+    //   inject: [ConfigService],
+    //   useFactory: (configService: ConfigService) => ({
+    //     uri: configService.get('mongodb.cats.uri'),
+    //     connectionName: configService.get('mongodb.cats.name'),
+    //   }),
+    //   connectionName: 'cats',
+    // }),
+    // MongooseModule.forRootAsync({
+    //   imports: [ConfigModule],
+    //   inject: [ConfigService],
+    //   useFactory: (configService: ConfigService) => ({
+    //     uri: configService.get('mongodb.users.uri'),
+    //     connectionName: configService.get('mongodb.users.name'),
+    //   }),
+    //   connectionName: 'users',
+    // }),
     CategoriesModule,
-    UsersModule,
+    // UsersModule,
     HealthModule,
-    CatsModule,
+    // CatsModule,
     MyLoggerModule
   ],
   controllers: [],
