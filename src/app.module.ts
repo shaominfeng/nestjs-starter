@@ -8,6 +8,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { CatsModule } from './modules/cats/cats.module';
 import {MyLoggerModule} from "./common/my-logger/my-logger.module";
 import {ThrottlerModule} from "@nestjs/throttler";
+import {BullModule} from "@nestjs/bull";
 @Module({
   imports: [
     ThrottlerModule.forRoot({
@@ -18,6 +19,19 @@ import {ThrottlerModule} from "@nestjs/throttler";
       ignoreEnvFile: true,
       isGlobal: true,
       load: [customConfig],
+    }),
+    BullModule.forRootAsync({
+        imports: [ConfigModule],
+        inject: [ConfigService],
+        useFactory: async  (configService: ConfigService) => ({
+          redis:{
+            host: configService.get('3rdParties.redis.host'),
+            port: configService.get('3rdParties.redis.host'),
+          }
+        }),
+    }),
+    BullModule.registerQueue({
+      name: 'queue',
     }),
     // MongooseModule.forRootAsync({
     //   imports: [ConfigModule],
