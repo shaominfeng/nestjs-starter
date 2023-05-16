@@ -1,14 +1,12 @@
+import { BullModule } from '@nestjs/bull';
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { CategoriesModule } from './modules/categories/categories.module';
-import { UsersModule } from './modules/users/users.module';
-import { HealthModule } from './modules/health/health.module';
+import { ThrottlerModule } from '@nestjs/throttler';
+
+import { MyLoggerModule } from './common/my-logger/my-logger.module';
 import customConfig from './config';
-import { MongooseModule } from '@nestjs/mongoose';
-import { CatsModule } from './modules/cats/cats.module';
-import {MyLoggerModule} from "./common/my-logger/my-logger.module";
-import {ThrottlerModule} from "@nestjs/throttler";
-import {BullModule} from "@nestjs/bull";
+import { CategoriesModule } from './modules/categories/categories.module';
+import { HealthModule } from './modules/health/health.module';
 @Module({
   imports: [
     ThrottlerModule.forRoot({
@@ -21,14 +19,14 @@ import {BullModule} from "@nestjs/bull";
       load: [customConfig],
     }),
     BullModule.forRootAsync({
-        imports: [ConfigModule],
-        inject: [ConfigService],
-        useFactory: async  (configService: ConfigService) => ({
-          redis:{
-            host: configService.get('3rdParties.redis.host'),
-            port: configService.get('3rdParties.redis.host'),
-          }
-        }),
+      imports: [ConfigModule],
+      inject: [ConfigService],
+      useFactory: async (configService: ConfigService) => ({
+        redis: {
+          host: configService.get('3rdParties.redis.host'),
+          port: configService.get('3rdParties.redis.host'),
+        },
+      }),
     }),
     BullModule.registerQueue({
       name: 'queue',
@@ -55,7 +53,7 @@ import {BullModule} from "@nestjs/bull";
     // UsersModule,
     HealthModule,
     // CatsModule,
-    MyLoggerModule
+    MyLoggerModule,
   ],
   controllers: [],
   providers: [],

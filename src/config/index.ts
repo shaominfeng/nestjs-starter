@@ -2,9 +2,9 @@ import merge from 'lodash.merge';
 
 import defaultConfig from './cfg.default';
 import localConfig from './cfg.local';
+import mockConfig from './cfg.mock';
 import productionConfig from './cfg.production';
 import testConfig from './cfg.test';
-import mockConfig from './cfg.mock';
 
 const configs: { [key: string]: {} } = {
   mock: mockConfig,

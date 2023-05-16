@@ -2,8 +2,8 @@ export default {
   ui: {
     title: 'hello',
   },
-  log:{
-    level:'debug',
+  log: {
+    level: 'debug',
   },
   mongodb: {
     cats: {

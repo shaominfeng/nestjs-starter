@@ -1,8 +1,9 @@
 import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
-import {MyLoggerService} from './common/my-logger/my-logger.service';
-import {LoggerErrorInterceptor} from "nestjs-pino";
 import helmet from 'helmet';
+import { LoggerErrorInterceptor } from 'nestjs-pino';
+
+import { AppModule } from './app.module';
+import { MyLoggerService } from './common/my-logger/my-logger.service';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
