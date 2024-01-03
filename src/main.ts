@@ -10,6 +10,7 @@ async function bootstrap() {
   app.useLogger(app.get(MyLoggerService));
   app.useGlobalInterceptors(new LoggerErrorInterceptor());
   app.use(helmet());
-  await app.listen(3000);
+  await app.listen(3001);
+  console.log(`Application is running on: ${await app.getUrl()}`);
 }
 bootstrap();
